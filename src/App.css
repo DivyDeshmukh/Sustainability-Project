@@ -1,6 +1,6 @@
 .video-container {
     position: relative;
-    height: 460px;
+    height: 500px;
     overflow: hidden; /* Ensure video doesn't overflow the container */
     border-radius:1% ;
   }
@@ -40,3 +40,72 @@ h1 span {
     color: #fff;
     text-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 5px #fff; /* Reduced glow effect */
   }
+
+  /* General navbar styles */
+.navbar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7); /* Transparent background */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 7px;
+    z-index: 1000;
+   
+  }
+  
+  /* Container for navbar content */
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    width: 100%;
+  }
+  
+  /* Navigation items */
+  .nav-items {
+    display: flex;
+  justify-content: center;
+  align-items: center;  
+    gap: 8px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  /* Link styles */
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  /* Active link style */
+  .nav-link.active {
+    color: rgb(195, 232, 92); /* Active link color */
+  }
+  
+  /* Hover effect for links */
+  .nav-link:hover {
+    color: #80e198; /* Hover color */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .nav-items {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .navbar {
+      flex-direction: column;
+      padding: 20px;
+    }
+    
+    .nav-link {
+      margin: 5px 0;
+    }
+  }
+  
