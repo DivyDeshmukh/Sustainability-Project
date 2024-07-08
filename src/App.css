@@ -1,0 +1,42 @@
+.video-container {
+    position: relative;
+    height: 460px;
+    overflow: hidden; /* Ensure video doesn't overflow the container */
+    border-radius:1% ;
+  }
+
+  
+  .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* Ensure the text overlay is on top of the video */
+    color: white; /* Adjust text color as needed */
+    text-align: center; /* Center the text */
+    transition: 0.5s ease-out;
+  }
+  
+  .overlay-text-field {
+    font-size: 4em; /* Adjust font size as needed */
+    padding: 10px; /* Optional: Add padding for better appearance */
+    border-radius: 5px; /* Optional: Add border radius */
+  }
+  
+  
+h1 span {
+    transition: 0.5s ease-out;
+  }
+  h1:hover span:nth-child() {
+    margin-right: 5px;
+  }
+  h1:hover span:nth-child():after {
+    content: "'";
+  }
+  h1:hover span:nth-child() {
+    margin-left: 30px;
+  }
+  h1:hover span {
+    color: #fff;
+    text-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 5px #fff; /* Reduced glow effect */
+  }
