@@ -7,6 +7,7 @@ import "/src/App.css";
 
 function Header() {
   const authStatus = useSelector((state) => state.auth.authStatus);
+  
 
   const navItems = [
     {
@@ -27,11 +28,6 @@ function Header() {
     {
       name: "Login",
       slug: "/login",
-      active: !authStatus,
-    },
-    {
-      name: "Signup",
-      slug: "/signup",
       active: !authStatus,
     },
     {

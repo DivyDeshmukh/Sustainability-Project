@@ -4,9 +4,9 @@ import "/src/App.css";
 
 const Hero = () => {
 
-  const handleSignupClick = () => {
+  const handleLoginClick = () => {
     // Simulate navigation to the Signup component
-    window.location.href = "/signup"; // Redirects to the Signup page
+    window.location.href = "/login"; // Redirects to the Signup page
   };
 
   // const handleSignupClick = () => {
@@ -42,7 +42,7 @@ const Hero = () => {
           <span>Green</span>
         </h1>
         <h2 className="sub-heading">Understand your carbon footprint and take steps towards a sustainable future.</h2>
-        <button className="signup-button" onClick={handleSignupClick}>Join Us</button>
+        <button className="signup-button" onClick={handleLoginClick}>Join Us</button>
       </div>
     </div>
   );
