@@ -1,6 +1,17 @@
 import React from "react";
 import "/src/App.css";
+// import { useHistory } from "react-router-dom";
+
 const Hero = () => {
+
+  const handleSignupClick = () => {
+    // Simulate navigation to the Signup component
+    window.location.href = "/signup"; // Redirects to the Signup page
+  };
+
+  // const handleSignupClick = () => {
+  //   history.push("/signup"); // Navigate to the Signup component
+  // };
   return (
     // <div
     //   className="relative bg-cover bg-center h-screen flex items-center justify-center"
@@ -30,6 +41,8 @@ const Hero = () => {
           <span>Live</span> <span>Free,</span> <span>Live</span>{" "}
           <span>Green</span>
         </h1>
+        <h2 className="sub-heading">Understand your carbon footprint and take steps towards a sustainable future.</h2>
+        <button className="signup-button" onClick={handleSignupClick}>Join Us</button>
       </div>
     </div>
   );

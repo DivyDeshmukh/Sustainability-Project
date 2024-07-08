@@ -40,7 +40,10 @@ h1 span {
     color: #fff;
     text-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 5px #fff; /* Reduced glow effect */
   }
-
+.sub-heading
+{
+  font-size: 15px;
+}
   /* General navbar styles */
 .navbar {
     width: 100%;
@@ -107,5 +110,19 @@ h1 span {
     .nav-link {
       margin: 5px 0;
     }
+  }
+  /* signup button */
+  .signup-button {
+    z-index: 400; /* Adjust z-index as needed */
+    border: 3px solid #007bff;; /* Remove border or set border properties */
+    margin-top: 20px;
+    border-radius:20%;
+    border-color: black;
+    padding: 10px ; /* Adjust padding for a more reasonable size */
+    background-color: #468b33; /* Example background color */
+    color: white; /* Text color */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    /* Add more styles as needed */
   }
   
