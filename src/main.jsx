@@ -23,6 +23,7 @@ import {
 } from "./components/index.js";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
+import Username from "./pages/Username.jsx";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <LandingPage />, // home page
+      },
+      {
+        path: "/username",
+        element: <Username />,
       },
       {
         path: "/about",

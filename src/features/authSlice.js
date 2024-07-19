@@ -12,6 +12,7 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     login: (state, action) => {
+      console.log("chala store");
       state.authStatus = true;
       state.userData = action.payload;
     },

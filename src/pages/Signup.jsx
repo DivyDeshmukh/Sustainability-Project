@@ -1,9 +1,20 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import axios from "axios";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faEnvelope, faLock, faCity, faMapMarkerAlt, faMapPin, faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUser,
+  faEnvelope,
+  faLock,
+  faCity,
+  faMapMarkerAlt,
+  faMapPin,
+  faCaretDown,
+} from "@fortawesome/free-solid-svg-icons";
+import authService from "../appwrite/auth";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { login } from "../features/authSlice";
 
 function Signup() {
   const {
@@ -13,13 +24,21 @@ function Signup() {
   } = useForm();
   const [submitting, setSubmitting] = useState(false);
   const [formError, setFormError] = useState(null);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     setSubmitting(true);
+    console.log(data);
     try {
       // Replace "YOUR_API_ENDPOINT" with your actual API endpoint
-      const response = await axios.post("YOUR_API_ENDPOINT", data);
-      console.log(response.data);
+      const userAccount = await authService.createAccount({ ...data });
+      console.log(userAccount);
+      if (userAccount) {
+        const currentUser = await authService.getCurrentUser();
+        dispatch(login({ ...currentUser }));
+        navigate("/username");
+      }
     } catch (error) {
       setFormError("Failed to submit form. Please try again.");
     } finally {
@@ -52,24 +71,27 @@ function Signup() {
       </style>
       <div className="max-w-2xl mx-auto mt-4 bg-gray-100 bg-opacity-60 p-4 rounded-lg shadow-md">
         <h1 className="text-center text-2xl font-bold mb-4">Registration</h1>
-        <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 gap-4">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="grid grid-cols-1 gap-4"
+        >
           <div className="mb-1">
             <label
-              htmlFor="firstname"
-              className="block text-gray-700 text-sm font-bold mb-2 flex items-center"
+              htmlFor="fullName"
+              className=" text-gray-700 text-sm font-bold mb-2 flex items-center"
             >
-              <FontAwesomeIcon icon={faUser} className="mr-2" /> Name
+              <FontAwesomeIcon icon={faUser} className="mr-2" /> Full Name
             </label>
             <input
-              {...register("firstname", { required: "First name is required" })}
+              {...register("fullName", { required: "Full name is required" })}
               type="text"
-              id="firstname"
-              placeholder="Enter your name"
+              id="fullname"
+              placeholder="Enter your Full Name"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
-            {errors.firstname && (
+            {errors.fullName && (
               <p className="text-red-500 text-xs italic">
-                {errors.firstname.message}
+                {errors.fullName.message}
               </p>
             )}
           </div>
@@ -78,9 +100,10 @@ function Signup() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-gray-700 text-sm font-bold mb-2 flex items-center"
+                className="text-gray-700 text-sm font-bold mb-2 flex items-center"
               >
-                <FontAwesomeIcon icon={faEnvelope} className="mr-2" /> Email Address
+                <FontAwesomeIcon icon={faEnvelope} className="mr-2" /> Email
+                Address
               </label>
               <input
                 {...register("email", {
@@ -104,7 +127,7 @@ function Signup() {
             <div>
               <label
                 htmlFor="password"
-                className="block text-gray-700 text-sm font-bold mb-2 flex items-center"
+                className=" text-gray-700 text-sm font-bold mb-2 flex items-center"
               >
                 <FontAwesomeIcon icon={faLock} className="mr-2" /> Password
               </label>
@@ -133,7 +156,7 @@ function Signup() {
             <div>
               <label
                 htmlFor="city"
-                className="block text-gray-700 text-sm font-bold mb-2 flex items-center"
+                className=" text-gray-700 text-sm font-bold mb-2 flex items-center"
               >
                 <FontAwesomeIcon icon={faCity} className="mr-2" /> City
               </label>
@@ -145,13 +168,15 @@ function Signup() {
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
               {errors.city && (
-                <p className="text-red-500 text-xs italic">{errors.city.message}</p>
+                <p className="text-red-500 text-xs italic">
+                  {errors.city.message}
+                </p>
               )}
             </div>
             <div>
               <label
                 htmlFor="state"
-                className="block text-gray-700 text-sm font-bold mb-2 flex items-center"
+                className=" text-gray-700 text-sm font-bold mb-2 flex items-center"
               >
                 <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" /> State
               </label>
@@ -161,19 +186,24 @@ function Signup() {
                 placeholder="Choose"
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               >
-                <option value="">Choose...<FontAwesomeIcon icon={faCaretDown} className="mr-2" /></option>
+                <option value="">
+                  Choose...
+                  <FontAwesomeIcon icon={faCaretDown} className="mr-2" />
+                </option>
                 <option value="NY">New York</option>
                 <option value="CA">California</option>
                 {/* Add more options as needed */}
               </select>
               {errors.state && (
-                <p className="text-red-500 text-xs italic">{errors.state.message}</p>
+                <p className="text-red-500 text-xs italic">
+                  {errors.state.message}
+                </p>
               )}
             </div>
             <div>
               <label
                 htmlFor="zip"
-                className="block text-gray-700 text-sm font-bold mb-2 flex items-center"
+                className=" text-gray-700 text-sm font-bold mb-2 flex items-center"
               >
                 <FontAwesomeIcon icon={faMapPin} className="mr-2" /> Zip Code
               </label>
@@ -185,7 +215,57 @@ function Signup() {
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
               {errors.zip && (
-                <p className="text-red-500 text-xs italic">{errors.zip.message}</p>
+                <p className="text-red-500 text-xs italic">
+                  {errors.zip.message}
+                </p>
+              )}
+            </div>
+            <div>
+              <label
+                htmlFor="country"
+                className=" text-gray-700 text-sm font-bold mb-2 flex items-center"
+              >
+                <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" />{" "}
+                Country
+              </label>
+              <select
+                {...register("country", { required: "Country is required" })}
+                id="country"
+                placeholder="Choose"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              >
+                <option value="">
+                  Choose...
+                  <FontAwesomeIcon icon={faCaretDown} className="mr-2" />
+                </option>
+                <option value="IN">India</option>
+                <option value="US">USA</option>
+                {/* Add more options as needed */}
+              </select>
+              {errors.country && (
+                <p className="text-red-500 text-xs italic">
+                  {errors.country.message}
+                </p>
+              )}
+            </div>
+            <div>
+              <label
+                htmlFor="bio"
+                className=" text-gray-700 text-sm font-bold mb-2 flex items-center"
+              >
+                <FontAwesomeIcon icon={faUser} className="mr-2" /> Bio
+              </label>
+              <input
+                {...register("bio", { required: "Bio is required" })}
+                id="bio"
+                placeholder="Add Bio"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+
+              {errors.bio && (
+                <p className="text-red-500 text-xs italic">
+                  {errors.bio.message}
+                </p>
               )}
             </div>
           </div>
