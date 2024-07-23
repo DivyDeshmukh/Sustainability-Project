@@ -32,12 +32,12 @@ const Hero = () => {
       </video>
       <div className="text-overlay">
         <h1 className="overlay-text-field">
-          <span>Live</span> <span>Free,</span> <span>Live</span>{" "}
-          <span>Green</span>
+          <span>Live</span> <span>Green,</span> <span>Live</span>{" "}
+          <span>Free</span>
         </h1>
         <h2 className="sub-heading">
           Understand your carbon footprint and take steps towards a sustainable
-          future.
+          future. Join us and Learn to use sustainable measures in day-to-day life.
         </h2>
         <button className="signup-button" onClick={handleLoginClick}>
           Join Us
