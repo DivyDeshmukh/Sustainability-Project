@@ -1,132 +1,12 @@
-// import React from "react";
-// import { useForm } from "react-hook-form";
-// import { useState } from "react";
-// import axios from "axios";
-// import "/login.css";
-
-// function Login() {
-//   const handleSignUpClick = () => {
-//     // Simulate navigation to the Signup component
-//     window.location.href = "/signup"; // Redirects to the Signup page
-//   };
-
-//   const {
-//     register,
-//     handleSubmit,
-//     formState: { errors },
-//   } = useForm();
-//   const [submitting, setSubmitting] = useState(false);
-//   const [formError, setFormError] = useState(null);
-
-//   const onSubmit = async (data) => {
-//     setSubmitting(true);
-//     try {
-//       const response = await axios.post("YOUR_API_ENDPOINT", data);
-//       console.log(response.data);
-//     } catch (error) {
-//       setFormError("Invalid credentials. Please try again.");
-//     } finally {
-//       setSubmitting(false);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <div className="loginForm m-2 py-6 flex flex-col justify-center sm:py-12">
-//         <div className="loginForm m-2 py-6 flex flex-col justify-center sm:py-12">
-//           <div className="login absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-xl w-40 mx-auto "></div>
-//           <div className="login relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-16 w-40 ">
-//             <div className="mx-auto max-w-md">
-//               <h1 className="text-center text-2xl font-bold mb-4">Login</h1>
-//               <form onSubmit={handleSubmit(onSubmit)}>
-//                 <div className="mb-4">
-//                   <label
-//                     className="block text-gray-700 text-sm font-bold mb-2"
-//                     htmlFor="email"
-//                   >
-//                     Email Address
-//                   </label>
-//                   <input
-//                     {...register("email", {
-//                       required: "Email is required",
-//                       pattern: {
-//                         value: /^\S+@\S+$/i,
-//                         message: "Invalid email address",
-//                       },
-//                     })}
-//                     type="email"
-//                     id="email"
-//                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-//                   />
-//                   {errors.email && (
-//                     <p className="text-red-500 text-xs italic">
-//                       {errors.email.message}
-//                     </p>
-//                   )}
-//                 </div>
-//                 <div className="mb-4">
-//                   <label
-//                     className="block text-gray-700 text-sm font-bold mb-2"
-//                     htmlFor="password"
-//                   >
-//                     Password
-//                   </label>
-//                   <input
-//                     {...register("password", {
-//                       required: "Password is required",
-//                     })}
-//                     type="password"
-//                     id="password"
-//                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-//                   />
-//                   {errors.password && (
-//                     <p className="text-red-500 text-xs italic">
-//                       {errors.password.message}
-//                     </p>
-//                   )}
-//                 </div>
-//                 {formError && (
-//                   <p className="text-red-500 text-xs italic">{formError}</p>
-//                 )}
-//                 <div className="flex items-center">
-//                   <button
-//                     type="submit"
-//                     className="block mx-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-//                   >
-//                     {submitting ? "Logging in..." : "Login"}
-//                   </button>
-
-//                   <br />
-//                 </div>
-//                 <br />
-//                 <p
-//                   style={{ cursor: "pointer", textAlign: "center" }}
-//                   onClick={handleSignUpClick}
-//                 >
-//                   Click here if not registered
-//                 </p>
-//               </form>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Login;
-
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
-import axios from "axios";
-import "/login.css";
-import Input from "../components/Input";
-import authService from "../appwrite/auth";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import Input from "../components/Input";
+import authService from "../appwrite/auth";
 import { login } from "../features/authSlice";
 import appwriteService from "../appwrite/config";
+import "/login.css";
 
 function Login() {
   const {
@@ -212,11 +92,13 @@ function Login() {
                       Password
                     </label>
                   </div>
+                  {formError && (
+                    <p className="text-red-500 text-xs italic">{formError}</p>
+                  )}
                   <div className="relative">
                     <button
                       type="submit"
                       className="block mx-auto bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                      fdprocessedid="5oucw"
                     >
                       {submitting ? "Logging in..." : "Login"}
                     </button>
