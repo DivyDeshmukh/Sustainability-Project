@@ -1,4 +1,3 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import Logo from "../Logo";
 import { NavLink } from "react-router-dom";
@@ -7,7 +6,6 @@ import "/src/App.css";
 
 function Header() {
   const authStatus = useSelector((state) => state.auth.authStatus);
-  
 
   const navItems = [
     {
@@ -47,6 +45,11 @@ function Header() {
     {
       name: "LeaderBoard",
       slug: "/leaderboard",
+      active: authStatus,
+    },
+    {
+      name: "Scanner",
+      slug: "/scanner",
       active: authStatus,
     },
   ];

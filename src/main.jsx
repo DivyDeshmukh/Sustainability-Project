@@ -24,6 +24,7 @@ import {
 import { Provider } from "react-redux";
 import store from "./store/store.js";
 import Username from "./pages/Username.jsx";
+import Scanner from "./pages/Scanner.jsx";
 
 const router = createBrowserRouter([
   {
@@ -133,6 +134,14 @@ const router = createBrowserRouter([
       {
         path: "/editprofile",
         element: <EditProfile />,
+      },
+      {
+        path: "/scanner",
+        element: (
+          <ProtectedRoute>
+            <Scanner />
+          </ProtectedRoute>
+        ),
       },
     ],
   },
