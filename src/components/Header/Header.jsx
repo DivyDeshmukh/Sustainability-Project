@@ -33,22 +33,32 @@ function Header() {
       slug: "/community",
     },
     {
-      name: "Resource Recommendation",
-      slug: "http://127.0.0.1:5000/recommend?user_id=1",
-      active: authStatus,
-    },
-    {
       name: "Tasks",
       slug: "/tasks",
       active: authStatus,
     },
-
     {
       name: "Scanner",
       slug: "/scanner",
       active: authStatus,
     },
   ];
+
+  // Inline styles for the anchor tag
+  const recommendationLinkStyle = {
+    textDecoration: 'none',
+    color: 'white', // Color for the recommendation link
+    margin: '2px',
+     // Rounded corners
+    backgroundColor: 'rgba(40, 167, 69, 0.1)', // Background color with transparency
+    transition: 'color 0.4s ease',
+  };
+
+  // Hover effect styles for the anchor tag
+  const recommendationLinkHoverStyle = {
+   
+    color: 'green', // Text color on hover
+  };
 
   return (
     <header className="navbar">
@@ -59,7 +69,7 @@ function Header() {
             (item, index) =>
               item.active && (
                 <NavLink
-                  to={`${item.slug}`}
+                  to={item.slug}
                   key={index}
                   className={({ isActive }) =>
                     `nav-link ${isActive ? "active" : ""}`
@@ -68,6 +78,18 @@ function Header() {
                   {item.name}
                 </NavLink>
               )
+          )}
+          {authStatus && (
+            <a
+              href="http://127.0.0.1:5000/recommend?user_id=1"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={recommendationLinkStyle}
+              onMouseOver={(e) => Object.assign(e.target.style, recommendationLinkHoverStyle)}
+              onMouseOut={(e) => Object.assign(e.target.style, recommendationLinkStyle)}
+            >
+              Resource Recommendation
+            </a>
           )}
           {authStatus && <LogoutBtn />}
         </div>
