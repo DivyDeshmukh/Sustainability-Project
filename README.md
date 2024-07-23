@@ -42,7 +42,7 @@ Copy code
 ```
 npm run dev
 ```
-Open your browser and go to http://localhost:3000 to see the application in action.
+
 
 Features
 AI Recommendation System: Provides personalized suggestions to improve air and water quality.
