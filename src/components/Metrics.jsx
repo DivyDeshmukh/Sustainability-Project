@@ -2,7 +2,7 @@ import React from "react";
 
 const Metrics = () => {
   return (
-    <div className="max-w-6xl mx-auto mt-8">
+    <div className="max-w-6xl mx-auto mt-8 mt-[30px] mb-[30px]  ">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
         <div className="bg-white rounded-xl shadow-md p-6">
           <h2 className="text-2xl font-bold mb-4">

@@ -1,0 +1,41 @@
+resource_id,resource_content,resource_type,resource_url,weather_condition,air_quality_condition
+1,How to Set Up a Rainwater Harvesting System,Article,https://www.epa.gov/harvestwater,rain,good
+2,Top Tips for Reducing Energy Consumption During Heatwaves,Video,https://www.energy.gov/heatwaves,heatwave,good
+3,DIY Air Purifier from Common Household Items,Article,https://www.wired.com/diy-air-purifier,sunny,high pollution
+4,Understanding Air Quality Index and Its Impact on Health,Article,https://www.cdc.gov/air/air-quality-index.html,all,high pollution
+5,Energy-Efficient Heating Solutions for Cold Weather,Video,https://www.energy.gov/energy-efficient-heating,snow,good
+6,How to Reduce Carbon Footprint During Travel,Article,https://www.nationalgeographic.com/reduce-carbon-footprint,sunny,good
+7,Green Landscaping Tips for Urban Areas,Image,https://www.treehugger.com/green-landscaping,cloudy,good
+8,Impact of High Air Pollution on Respiratory Health,Article,https://www.lung.org/air-pollution-health,all,very high pollution
+9,How to Build a Solar Oven at Home,Video,https://www.instructables.com/solar-oven,sunny,good
+10,Emergency Preparedness Tips for Natural Disasters,Article,https://www.redcross.org/natural-disasters-preparedness,rain,good
+11,Water Conservation Tips for Drought Conditions,Article,https://www.water.org/conservation-tips,drought,good
+12,How to Install Solar Panels at Home,Video,https://www.solarpowerworldonline.com/solar-installation,sunny,good
+13,Energy Saving Tips for Winter,Article,https://www.consumerreports.org/energy-saving-tips-winter,winter,good
+14,How to Compost at Home,Article,https://www.nrdc.org/composting-guide,rain,good
+15,Benefits of Using Public Transportation,Article,https://www.transitapp.com/benefits-public-transportation,cloudy,good
+16,Building a Sustainable Urban Garden,Article,https://www.bhg.com/sustainable-urban-garden,cloudy,good
+17,The Importance of Energy-Efficient Appliances,Article,https://www.americanforests.org/urban-trees,sunny,good
+18,Reducing Plastic Waste in Daily Life,Video,https://www.foodprint.org/sustainable-food-choices,sunny,good
+19,How to Start a Community Recycling Program,Article,https://www.garden.org/rain-garden-diy,cloudy,good
+20,The Role of Trees in Urban Sustainability,Article,https://www.wateruseitwisely.com/reduce-water-usage,all,good
+21,Guide to Sustainable Food Choices,Article,https://www.sustainableagriculture.net,sunny,good
+22,DIY Rain Garden for Stormwater Management,Video,https://www.greenroofing.org/benefits,rain,good
+23,How to Reduce Your Water Usage,Article,https://www.youtube.com/zero-waste-lifestyle,drought,good
+24,Understanding Sustainable Agriculture Practices,Article,https://www.recycleacrossamerica.org/start-community-recycling,sunny,good
+25,The Benefits of Green Roofs,Article,https://www.earth911.com/waste-management,cloudy,good
+26,How to Create a Zero-Waste Lifestyle,Video,https://www.archdaily.com/energy-efficiency-building-design,sunny,good
+27,Effective Waste Management Techniques,Article,https://www.energy.gov/energy-wisely-home,all,good
+28,Energy Efficiency in Building Design,Video,https://www.lowimpact.org/gardening-techniques,heatwave,good
+29,How to Use Energy Wisely at Home,Article,https://www.earth.org/eco-friendly-travel,heatwave,good
+30,The Impact of Air Quality on Climate Change,Article,https://www.greeninfrastructure.org/stormwater,winter,high pollution
+31,How to Combat Urban Heat Islands,Article,https://www.youtube.com/carbon-footprint,all,moderate
+32,Green Building Practices for Hot Climates,Article,https://www.epa.gov/heat-islands,snow,good
+33,Preparing Your Home for Winter Weather,Article,https://www.gbci.org/green-building-hot-climates,sunny,good
+34,Emergency Tips for Air Quality Alerts,Article,https://www.weather.gov/winter-weather-preparedness,cloudy,very high pollution
+35,How to Build a Sustainable Home in Cold Climates,Article,https://www.cdc.gov/air-quality-alerts,sunny,good
+36,Using Smart Technology to Manage Energy,Article,https://www.sustainablebuild.co.uk/cold-climates,cloudy,good
+37,Low-Impact Gardening Techniques,Article,https://www.techcrunch.com/smart-energy-management,rain,good
+38,Guide to Eco-Friendly Travel,Article,https://www.lowimpact.org/gardening-techniques,sunny,good
+39,Managing Stormwater with Green Infrastructure,Article,https://www.earth.org/eco-friendly-travel,all,high pollution
+40,Understanding and Reducing Your Carbon Footprint,Video,https://www.greeninfrastructure.org/stormwater,all,good

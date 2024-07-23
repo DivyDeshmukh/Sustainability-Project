@@ -1,3 +1,4 @@
+// src/components/Input.jsx
 import React from "react";
 
 const Input = React.forwardRef(function (
@@ -5,13 +6,16 @@ const Input = React.forwardRef(function (
   ref
 ) {
   return (
-    <div className="flex justify-center">
-      {label && <label className="mr-2 mt-1.5 text-white">{label}</label>}
-
+    <div className="flex flex-col w-full">
+      {label && (
+        <label className="mb-1 text-white font-mediu, text-sm">
+          {label}
+        </label>
+      )}
       <input
         type={type}
         placeholder={placeholder}
-        className={`p-1 w-[90%] text-black ${className} px-2`}
+        className={`p-2 border border-gray-300 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150 ease-in-out ${className}`}
         ref={ref}
         {...props}
       />

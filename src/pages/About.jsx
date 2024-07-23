@@ -4,7 +4,7 @@ import Metrics from "../components/Metrics";
 function About() {
   return (
 
-    <div className="min-h-screen  ">
+    <div className="min-h-screen mt-[30px]">
       <div className=" bg-[#FFE0C3] ">
         <div className="max-w-6xl sm:mx-auto">
           <div className="grid bg-[#FFE0C3] grid-cols-1 sm:grid-cols-[3fr,4fr] sm:gap-20  gap-10 py-10 sm:px-0 px-6 text-black ">

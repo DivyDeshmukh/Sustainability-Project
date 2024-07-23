@@ -14,8 +14,9 @@ import authService from "../appwrite/auth";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { login } from "../features/authSlice";
-import Input from "components/Input";
-//import Select from "./Select";
+import Input from "../components/Input";
+import Select from "../components/Select";  
+
 
 function Signup() {
   const {
@@ -47,8 +48,10 @@ function Signup() {
   };
 
   const stateOptions = [
-    { value: "NY", label: "New York" },
-    { value: "CA", label: "California" },
+    { value: "DL", label: "Delhi" },
+    { value: "RJ", label: "Rajasthan" },
+    { value: "MH", label: "Maharashtra" },
+    { value: "GJ", label: "Gujurat" }
   ];
 
   const countryOptions = [
