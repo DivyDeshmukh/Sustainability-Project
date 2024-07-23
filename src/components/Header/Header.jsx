@@ -33,8 +33,8 @@ function Header() {
       slug: "/community",
     },
     {
-      name: "Sustainable Living",
-      slug: "/sustainable",
+      name: "Resource Recommendation",
+      slug: "http://127.0.0.1:5000/recommend?user_id=1",
       active: authStatus,
     },
     {
@@ -42,11 +42,7 @@ function Header() {
       slug: "/tasks",
       active: authStatus,
     },
-    {
-      name: "LeaderBoard",
-      slug: "/leaderboard",
-      active: authStatus,
-    },
+
     {
       name: "Scanner",
       slug: "/scanner",

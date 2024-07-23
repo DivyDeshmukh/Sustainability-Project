@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -45,13 +45,89 @@
     </style>
 </head>
 <body>
+    import { useSelector } from "react-redux";
+import Logo from "../Logo";
+import { NavLink } from "react-router-dom";
+import { LogoutBtn } from "../index";
+import "/src/App.css";
+
+function Header() {
+  const authStatus = useSelector((state) => state.auth.authStatus);
+
+  const navItems = [
+    {
+      name: "Home",
+      slug: "/",
+      active: true,
+    },
+    {
+      name: "About",
+      slug: "/about",
+      active: !authStatus,
+    },
+    {
+      name: "Contact",
+      slug: "/contact",
+      active: !authStatus,
+    },
+    {
+      name: "Login",
+      slug: "/login",
+      active: !authStatus,
+    },
+    {
+      name: "Community",
+      slug: "/community",
+    },
+    {
+      name: "Resource Recommendation",
+      slug: "http://127.0.0.1:5000/recommend?user_id=1",
+      active: authStatus,
+    },
+    {
+      name: "Tasks",
+      slug: "/tasks",
+      active: authStatus,
+    },
+
+    {
+      name: "Scanner",
+      slug: "/scanner",
+      active: authStatus,
+    },
+  ];
+
+  return (
+    <header className="navbar">
+      <div className="container">
+        <Logo />
+        <div className="nav-items">
+          {navItems?.map(
+            (item, index) =>
+              item.active && (
+                <NavLink
+                  to={`${item.slug}`}
+                  key={index}
+                  className={({ isActive }) =>
+                    `nav-link ${isActive ? "active" : ""}`
+                  }
+                >
+                  {item.name}
+                </NavLink>
+              )
+          )}
+          {authStatus && <LogoutBtn />}
+        </div>
+      </div>
+    </header>
+  
     <div class="container mt-4">
         <h1 class="text-center mb-4">Personalized Resource Recommendations</h1>
         
         <div class="weather-info text-center">
             <h4><i class="fas fa-cloud-sun"></i> Weather: {{ weather_condition }}</h4>
-            <!-- <h4><i class="fas fa-thermometer-half"></i> Temperature: {{ temperature_celsius }}°C</h4> -->
-            <h4><i class="fas fa-smog"></i> Air Quality Index: {{ air_quality_condition }}</h4>
+             <h4><i class="fas fa-thermometer-half"></i> Temperature: {{ temperature_celsius }}°C</h4> -->
+            <!-- <h4><i class="fas fa-smog"></i> Air Quality Index: {{ air_quality_condition }}</h4>
         </div>
         
         <div class="filter-form">
@@ -87,8 +163,139 @@
         <div class="row mt-4">
             {% for resource in resources %}
             <div class="col-md-4 mb-4">
-                <div class="card">
+                <div class="card"> -->
                     <!-- <img src="{{ resource.resource_url }}" alt="Resource Image" class="card-img-top"> -->
+                    <!-- <div class="card-body">
+                        <h5 class="card-title">{{ resource.resource_content }}</h5>
+                        <p class="card-text">Type: {{ resource.resource_type }}</p>
+                        <a href="{{ resource.resource_url }}" target="_blank" class="btn btn-outline-primary">
+                            <i class="fas fa-external-link-alt"></i> Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Resource Recommendations</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            /* background: url('https://www.example.com/background.jpg') no-repeat center center fixed; */
+            background-size: cover;
+            color: #333;
+        }
+        .container {
+            background-color: rgba(213, 207, 207, 0.9);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .weather-info, .filter-form {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .weather-info h4, .filter-form label {
+            margin-bottom: 10px;
+        }
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .card img {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .card-body {
+            text-align: center;
+        }
+        .dropdown-menu {
+            min-width: 150px;
+        }
+        .navbar {
+            background-color: #171818;
+            padding: 1px;
+            box-shadow: 0 2px 4px rgba(13, 13, 13, 0.1);
+        }
+        .navbar .nav-link {
+            color: #333;
+            margin-left: 50px;
+            font-weight: 800;
+            margin-right: 15px;
+        }
+        .navbar .nav-link.active {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="container-1">
+            
+            <div class="nav-items">
+                <a href="http://localhost:5173/" class="nav-link active">Home</a>
+              
+            </div>
+        </div>
+    </header>
+
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Personalized Resource Recommendations</h1>
+        
+        <div class="weather-info text-center">
+            <h4><i class="fas fa-cloud-sun"></i> Weather: {{ weather_condition }}</h4>
+            <h4><i class="fas fa-smog"></i> Air Quality Index: {{ air_quality_condition }}</h4>
+        </div>
+        
+        <div class="filter-form">
+            <form action="/filter" method="get">
+                <div class="form-group">
+                    <label for="weather_condition"><i class="fas fa-sun"></i> Weather Condition</label>
+                    <select class="form-control" id="weather_condition" name="weather_condition">
+                        <option value="">Select...</option>
+                        <option value="sunny">Sunny</option>
+                        <option value="rainy">Rain</option>
+                        <option value="cloudy">Cloudy</option>
+                        <option value="snow">Snow</option>
+                        <option value="heatwave">Heatwave</option>
+                        <option value="winter">Winter</option>
+                        <option value="drought">Drought</option>
+                        <option value="all">All</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="air_quality"><i class="fas fa-wind"></i> Air Quality Condition</label>
+                    <select class="form-control" id="air_quality" name="air_quality">
+                        <option value="">Select...</option>
+                        <option value="good">Good</option>
+                        <option value="high pollution">High Pollution</option>
+                        <option value="very high pollution">Very High Pollution</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary"><i class="fas fa-filter"></i> Apply Filters</button>
+            </form>
+        </div>
+
+        <div class="row mt-4">
+            {% for resource in resources %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">{{ resource.resource_content }}</h5>
                         <p class="card-text">Type: {{ resource.resource_type }}</p>

@@ -17,7 +17,7 @@ function LogoutBtn() {
   };
 
   return (
-    <button className="text-black" onClick={logout}>
+    <button className="text-white" onClick={logout}>
       Logout
     </button>
   );
